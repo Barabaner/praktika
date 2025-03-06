@@ -1,1 +1,32 @@
+# Базовый класс
+class Animal:
+    def __init__(self, name):
+        self.name = name
 
+    def speak(self):
+        return "Я не знаю, какой звук издаю!"
+
+
+# Производный класс Dog
+class Dog(Animal):
+    def speak(self):
+        return f"{self.name} говорит: Гав-гав!"
+
+
+# Производный класс Cat
+class Cat(Animal):
+    def speak(self):
+        return f"{self.name} говорит: Мяу!"
+
+
+# Тестовая программа
+if __name__ == "__main__":
+    # Создаем объекты
+    animal = Animal("Неизвестное животное")
+    dog = Dog("Бобик")
+    cat = Cat("Мурзик")
+
+    # Демонстрируем работу методов
+    print(animal.speak())  # Метод базового класса
+    print(dog.speak())     # Метод производного класса Dog
+    print(cat.speak())     # Метод производного класса Cat
