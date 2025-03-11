@@ -1,0 +1,11 @@
+CREATE DATABASE Tourism;
+
+USE Tourism;
+
+CREATE TABLE Orders (
+    order_id INT PRIMARY KEY IDENTITY(1,1),
+    client_name NVARCHAR(100) NOT NULL,
+    tour_name NVARCHAR(100) NOT NULL,
+    order_date DATE NOT NULL,
+    total_price DECIMAL(10, 2) NOT NULL
+);
