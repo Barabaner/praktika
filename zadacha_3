@@ -1,0 +1,47 @@
+-- Создание таблицы Services (Услуги)
+CREATE TABLE Services (
+    service_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    price DECIMAL(10, 2) NOT NULL
+);
+
+-- Создание таблицы Clients (Клиенты)
+CREATE TABLE Clients (
+    client_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    phone VARCHAR(15),
+    email VARCHAR(100)
+);
+
+-- Создание таблицы Tours (Туры)
+CREATE TABLE Tours (
+    tour_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    price DECIMAL(10, 2) NOT NULL
+);
+
+-- Создание таблицы Employees (Сотрудники)
+CREATE TABLE Employees (
+    employee_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    position VARCHAR(100) NOT NULL
+);
+
+-- Создание таблицы Orders (Заказы)
+CREATE TABLE Orders (
+    order_id INT PRIMARY KEY AUTO_INCREMENT,
+    client_id INT,
+    tour_id INT,
+    employee_id INT,
+    order_date DATE NOT NULL,
+    total_price DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (client_id) REFERENCES Clients(client_id),
+    FOREIGN KEY (tour_id) REFERENCES Tours(tour_id),
+    FOREIGN KEY (employee_id) REFERENCES Employees(employee_id)
+);
